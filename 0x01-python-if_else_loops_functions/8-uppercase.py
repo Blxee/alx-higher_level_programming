@@ -5,4 +5,4 @@ def uppercase(str):
         tr[chr(char)] = chr(char - ord('a') + ord('A'))
     for c, C in tr.items():
         str = str.replace(c, C)
-    print(str)
+    print("{}".format(str))
