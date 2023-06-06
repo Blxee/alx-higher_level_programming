@@ -1,3 +1,6 @@
 #!/usr/bin/python3
 def islower(char):
-    return char.islower()
+    if (ord(char) >= ord('a') and ord(char) <= ord('z')):
+        return True
+    else:
+        return False
