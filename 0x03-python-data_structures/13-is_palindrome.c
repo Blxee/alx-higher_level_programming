@@ -54,7 +54,6 @@ int is_palindrome(listint_t **head)
 
 	for (i -= 2; i >= -1; i--)
 	{
-		printf("l: %d, r: %d\n", left->n, right->n);
 		if (left->n != right->n)
 		{
 			free(half);
