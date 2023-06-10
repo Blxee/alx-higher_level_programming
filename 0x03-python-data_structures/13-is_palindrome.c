@@ -33,15 +33,12 @@ unsigned int list_len(const listint_t *head)
 int is_palindrome(listint_t **head)
 {
 	listint_t *right, *temp;
-	int *half, left, len, i;
+	int half[1024], left, len, i;
 
 	if (head == NULL || *head == NULL)
 		return (1);
 
 	len = list_len(*head);
-	half = malloc((len / 2) * sizeof(*half));
-	if (half == NULL)
-		return (0);
 
 	temp = *head;
 	for (i = 0; i < len / 2; i++)
@@ -54,16 +51,12 @@ int is_palindrome(listint_t **head)
 	for (i -= 2; i >= -1; i--)
 	{
 		if (left != right->n)
-		{
-			free(half);
 			return (0);
-		}
 		if (i >= 0)
 		{
 			left = half[i];
 			right = right->next;
 		}
 	}
-	free(half);
 	return (1);
 }
