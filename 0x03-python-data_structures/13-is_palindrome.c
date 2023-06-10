@@ -32,8 +32,8 @@ unsigned int list_len(const listint_t *head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t **half, *left, *right, *temp;
-	int len, i;
+	listint_t *right, *temp;
+	int *half, left, len, i;
 
 	if (head == NULL || *head == NULL)
 		return (1);
@@ -46,15 +46,14 @@ int is_palindrome(listint_t **head)
 	temp = *head;
 	for (i = 0; i < len / 2; i++)
 	{
-		half[i] = temp;
-		left = temp;
+		half[i] = left = temp->n;
 		temp = temp->next;
 	}
 	right = (len % 2 == 0) ? temp : temp->next;
 
 	for (i -= 2; i >= -1; i--)
 	{
-		if (left->n != right->n)
+		if (left != right->n)
 		{
 			free(half);
 			return (0);
