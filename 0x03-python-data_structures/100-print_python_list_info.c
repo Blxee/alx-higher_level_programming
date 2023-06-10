@@ -28,5 +28,4 @@ void print_python_list_info(PyObject *p)
 		Py_DECREF(elem);
 		i++;
 	}
-		Py_DECREF(p);
 }
