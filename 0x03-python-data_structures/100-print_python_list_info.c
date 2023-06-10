@@ -23,8 +23,10 @@ void print_python_list_info(PyObject *p)
 	{
 		PyObject *elem = PyList_GetItem(p, i);
 
+		Py_INCREF(elem);
 		printf("Element %ld: %s\n", i, elem->ob_type->tp_name);
 		Py_DECREF(elem);
 		i++;
 	}
+		Py_DECREF(p);
 }
