@@ -15,6 +15,12 @@ void print_python_bytes(PyObject *p)
 	long len = obj->ob_base.ob_size;
 	int i;
 
+	if (!PyBytes_Check(p))
+	{
+		printf("  [ERROR] Invalid Bytes Object\n");
+		return;
+	}
+
 	printf("[.] bytes object info\n");
 	printf("  size: %ld\n", len);
 	printf("  trying string: %s\n", obj->ob_sval);
