@@ -21,7 +21,7 @@ void print_python_bytes(PyObject *p)
 	len = len > 10 ? 10 : len;
 	printf("  first %ld bytes:", len);
 	for (i = 0; i < len; i++)
-		printf(" %2hhx", obj->ob_sval[i]);
+		printf(" %02x", obj->ob_sval[i]);
 	printf("\n");
 }
 
