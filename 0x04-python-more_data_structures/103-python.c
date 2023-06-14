@@ -3,7 +3,6 @@
 #include <object.h>
 #include <bytesobject.h>
 #include <stdio.h>
-#include <python3.11/Python.h>
 
 /**
  * print_python_bytes - prints info about a python bytes object
