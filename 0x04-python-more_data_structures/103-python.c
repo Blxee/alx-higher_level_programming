@@ -45,9 +45,8 @@ void print_python_list(PyObject *p)
 	i = 0;
 	while (i < len)
 	{
-		PyObject *elem = PyList_GetItem(p, i);
+		PyObject *elem = PyList_GET_ITEM(p, i);
 
-		Py_INCREF(elem);
 		printf("Element %ld: %s\n", i, elem->ob_type->tp_name);
 		Py_DECREF(elem);
 		i++;
