@@ -3,6 +3,7 @@
 #include <object.h>
 #include <bytesobject.h>
 #include <stdio.h>
+#include <python3.11/Python.h>
 
 /**
  * print_python_bytes - prints info about a python bytes object
@@ -45,6 +46,7 @@ void print_python_list(PyObject *p)
 	while (i < len)
 	{
 		elem = PyList_GET_ITEM(p, i);
+		Py_INCREF(elem);
 		printf("Element %ld: %s\n", i, elem->ob_type->tp_name);
 		Py_DECREF(elem);
 		i++;
