@@ -12,17 +12,14 @@
 void print_python_bytes(PyObject *p)
 {
 	PyBytesObject *obj = (PyBytesObject *)p;
-	PyObject *str_obj = PyObject_Str(p);
-	const char *str = PyUnicode_AsUTF8(str_obj);
 	long len = obj->ob_base.ob_size;
 	int i;
 
 	printf("[.] bytes object info\n");
 	printf("  size: %ld\n", len);
-	printf("  trying string: %s\n", str);
-	Py_DECREF(str_obj);
-	printf("  first 6 bytes:");
+	printf("  trying string: %s\n", obj->ob_sval);
 	len = len > 10 ? 10 : len;
+	printf("  first %ld bytes:", len);
 	for (i = 0; i < len; i++)
 		printf(" %2hhx", obj->ob_sval[i]);
 	printf("\n");
