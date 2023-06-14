@@ -14,17 +14,18 @@ void print_python_bytes(PyObject *p)
 	PyBytesObject *obj = (PyBytesObject *)p;
 	PyObject *str_obj = PyObject_Str(p);
 	const char *str = PyUnicode_AsUTF8(str_obj);
-	long len = PyBytes_Size(p);
+	long len = obj->ob_base.ob_size;
 	int i;
 
 	printf("[.] bytes object info\n");
-	printf("\tsize: %ld\n", obj->ob_base.ob_size);
-	printf("\ttrying string: %s\n", str);
-	printf("\tfirst 6 bytes:");
+	printf("  size: %ld\n", len);
+	printf("  trying string: %s\n", str);
+	Py_DECREF(str_obj);
+	printf("  first 6 bytes:");
+	len = len > 10 ? 10 : len;
 	for (i = 0; i < len; i++)
 		printf(" %2hhx", obj->ob_sval[i]);
 	printf("\n");
-	Py_DECREF(str_obj);
 }
 
 /**
@@ -34,6 +35,7 @@ void print_python_bytes(PyObject *p)
  */
 void print_python_list(PyObject *p)
 {
+	PyObject *elem;
 	Py_ssize_t i, len;
 
 	if (p == NULL)
@@ -45,8 +47,7 @@ void print_python_list(PyObject *p)
 	i = 0;
 	while (i < len)
 	{
-		PyObject *elem = PyList_GET_ITEM(p, i);
-
+		elem = PyList_GET_ITEM(p, i);
 		printf("Element %ld: %s\n", i, elem->ob_type->tp_name);
 		Py_DECREF(elem);
 		i++;
