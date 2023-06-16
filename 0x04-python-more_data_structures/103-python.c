@@ -24,8 +24,7 @@ void print_python_bytes(PyObject *p)
 	printf("[.] bytes object info\n");
 	printf("  size: %ld\n", len);
 	printf("  trying string: %s\n", obj->ob_sval);
-	len++;
-	len = len > 10 ? 10 : len;
+	len = len > 10 ? 10 : len + 1;
 	printf("  first %ld bytes:", len);
 	for (i = 0; i < len; i++)
 		printf(" %02x", obj->ob_sval[i]);
