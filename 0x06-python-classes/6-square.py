@@ -28,6 +28,9 @@ class Square:
         """Setter method for `size`
         Args:
             size (int, optional): size of the square
+
+        Raises:
+            `TypeError` or `ValueError` when arguments are not correct
         """
         if type(size) is not int:
             raise TypeError('size must be an integer')
@@ -45,10 +48,14 @@ class Square:
         """Setter method for `position`
         Args:
             position (:obj:`tuple`, optional): position of the square
+
+        Raises:
+            `TypeError` when arguments are not correct
         """
-        if (position is not tuple
-                or len(position) != 2
-                or position[0] < 0 or position[1] < 0):
+        if ((not isinstance(position, tuple))
+                or (len(position) != 2)
+                or (position[0] < 0)
+                or (position[1] < 0)):
             raise TypeError('position must be a tuple of 2 positive integers')
         self.__position = position
 
