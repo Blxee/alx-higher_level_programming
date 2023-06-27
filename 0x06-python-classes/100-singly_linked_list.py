@@ -27,7 +27,7 @@ class Node:
         """
         if not isinstance(data, int):
             raise TypeError('data must be an integer')
-        this.__data = data
+        self.__data = data
 
     @property
     def next_node(self):
