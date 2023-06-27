@@ -24,7 +24,7 @@ class Square:
         return self.__size
 
     @size.setter
-    def size(self, size=0):
+    def size(self, size):
         """Setter method for `size`
         Args:
             size (int, optional): size of the square
@@ -44,7 +44,7 @@ class Square:
         return self.__position
 
     @position.setter
-    def position(self, position=(0, 0)):
+    def position(self, position):
         """Setter method for `position`
         Args:
             position (:obj:`tuple`, optional): position of the square
