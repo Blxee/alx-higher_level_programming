@@ -80,6 +80,6 @@ class Square:
             string += '\n'
         for i in range(self.size):
             string += ' ' * self.position[0] + '#' * self.size
-            if i < self.size:
+            if i < self.size - 1:
                 string += '\n'
         return string
