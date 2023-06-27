@@ -66,7 +66,7 @@ class SinglyLinkedList:
             return
         new = Node(value)
         if value <= self.__head.data:
-            self.__head, new.next_node = new, self.__head.next_node
+            new.next_node, self.__head  = self.__head, new
             return
         node = self.__head
         while node.next_node is not None:
