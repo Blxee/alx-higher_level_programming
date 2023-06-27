@@ -46,6 +46,10 @@ class Square:
         Args:
             position (:obj:`tuple`, optional): position of the square
         """
+        if (position is not tuple
+                or len(position) != 2
+                or position[0] < 0 or position[1] < 0):
+            raise TypeError('position must be a tuple of 2 positive integers')
         self.__position = position
 
     def area(self):
