@@ -1,18 +1,18 @@
 >>> say = __import__('3-say_my_name').say_my_name
 >>> say('Walter', 7)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: last_name must be an string
+...
+TypeError: last_name must be a string
 
 >>> say(7, 'White')
 Traceback (most recent call last):
-  File "<stdin>", line 2, in <module>
-TypeError: first_name must be an string
+...
+TypeError: first_name must be a string
 
 >>> say(7, 11)
 Traceback (most recent call last):
-  File "<stdin>", line 3, in <module>
-TypeError: first_name must be an string
+...
+TypeError: first_name must be a string
 
 >>> say('Walter', 'White')
 My name is Walter White
