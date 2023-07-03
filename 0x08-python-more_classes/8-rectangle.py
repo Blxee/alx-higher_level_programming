@@ -78,6 +78,7 @@ class Rectangle:
             return 0
         return 2 * self.__width + 2 * self.__height
 
+    @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """
         Determines which of two rectangles is bigger (based on area)
