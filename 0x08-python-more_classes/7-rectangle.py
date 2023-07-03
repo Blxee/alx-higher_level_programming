@@ -2,7 +2,7 @@
 """A module that defines a class `Rectangle`"""
 
 
-class Rectangle:
+class Rectangle(dict):
     """
     An Rectangle class
     Attributes:
