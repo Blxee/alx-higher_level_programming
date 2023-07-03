@@ -2,7 +2,7 @@
 """A module that defines a class `Rectangle`"""
 
 
-class Rectangle(dict):
+class Rectangle:
     """
     An Rectangle class
     Attributes:
@@ -88,8 +88,7 @@ class Rectangle(dict):
         if self.area() == 0:
             return result
         for row in range(self.__height):
-            for col in range(self.__width):
-                result += str(Rectangle.print_symbol)
+            result += str(Rectangle.print_symbol) * self.__width
             if row < self.__height - 1:
                 result += '\n'
         return result
