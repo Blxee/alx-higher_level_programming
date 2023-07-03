@@ -76,7 +76,7 @@ class Rectangle:
 
     def __str__(self):
         """
-        The official string representaion of `Rectangle`
+        The unofficial string representaion of `Rectangle`
         Retruns:
             a string drawing the rectangle using the '#' char
         """
