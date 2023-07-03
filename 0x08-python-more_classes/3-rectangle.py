@@ -75,8 +75,13 @@ class Rectangle(dict):
         return 2 * self.__width + 2 * self.__height
 
     def __str__(self):
+        """
+        The official string representaion of `Rectangle`
+        Retruns:
+            a string drawing the rectangle using the '#' char
+        """
         result = ''
-        if self.__width * self.__height == 0:
+        if self.area() == 0:
             return result
         for row in range(self.__height):
             result += '#' * self.__width
