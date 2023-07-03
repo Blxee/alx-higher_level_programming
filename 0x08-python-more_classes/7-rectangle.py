@@ -16,7 +16,6 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
-        self.print_symbol = Rectangle.print_symbol
         Rectangle.number_of_instances += 1
 
     @property
