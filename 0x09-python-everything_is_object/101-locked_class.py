@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Moduke for the LockedClass class"""
+"""Module for the LockedClass class"""
 
 
 class LockedClass:
-    """LockedClass preventsbthe user from creating attributes"""
+    """LockedClass prevents the user from creating attributes"""
 
     def __setattr__(self, name, value):
-        if name == 'first_name':
+        if name == 'first_name' and type(value) == str:
             super().__setattr__(name, value)
         else:
             raise AttributeError(
