@@ -10,4 +10,5 @@ class LockedClass:
             super().__setattr__(name, value)
         else:
             raise AttributeError(
-                f"'LockedClass' object has no attribute '{name}'")
+                f"'{self.__class__.__name__}' object has no attribute '{name}'"
+            )
