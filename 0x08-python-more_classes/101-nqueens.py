@@ -54,14 +54,15 @@ def backtrack(m):
         #         break
         # if jump:
         #     return
+        for st in states:
+            if all(pos in st for pos in queen_stack):
+                return
         states.append(queen_stack.copy())
         return
     for x in range(n):
         for y in range(n):
             pos = (x, y)
             if board[pos] != 0:
-                continue
-            if any(pos in st for st in states):
                 continue
             if not act_queen(pos, take_out=False):
                 act_queen(pos, take_out=True)
