@@ -6,7 +6,7 @@ class LockedClass:
     """LockedClass prevents the user from creating attributes"""
 
     def __setattr__(self, name, value):
-        if name == 'first_name' and type(value) == str:
+        if name == 'first_name' or hasattr(self, name):
             super().__setattr__(name, value)
         else:
             raise AttributeError(
