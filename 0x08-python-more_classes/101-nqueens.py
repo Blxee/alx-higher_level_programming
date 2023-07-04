@@ -26,6 +26,7 @@ states = []
 
 queen_stack = []
 
+
 def act_queen(pos, take_out=False):
     board[pos] = 0 if take_out else -1
     for key in board:
@@ -38,6 +39,7 @@ def act_queen(pos, take_out=False):
                 return False
             board[key] += -1 if take_out else 1
     return True
+
 
 def backtrack(m):
     if m == 0:
@@ -66,6 +68,7 @@ def backtrack(m):
             backtrack(m - 1)
             act_queen(pos, take_out=True)
             queen_stack.pop()
+
 
 backtrack(n)
 
