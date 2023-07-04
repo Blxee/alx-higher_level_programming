@@ -28,6 +28,7 @@ queen_stack = []
 
 
 def act_queen(pos, take_out=False):
+    targets = []
     board[pos] = 0 if take_out else -1
     for key in board:
         if (pos[0] == key[0]
@@ -36,7 +37,11 @@ def act_queen(pos, take_out=False):
             if key == pos:
                 continue
             if board[key] == -1:
+                board[pos] = 0
+                for t in targets:
+                    board[t] -= -1 if take_out else 1
                 return False
+            targets.append(key)
             board[key] += -1 if take_out else 1
     return True
 
@@ -65,7 +70,6 @@ def backtrack(m):
             if board[pos] != 0:
                 continue
             if not act_queen(pos, take_out=False):
-                act_queen(pos, take_out=True)
                 continue
             queen_stack.append(pos)
             backtrack(m - 1)
