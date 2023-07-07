@@ -12,9 +12,9 @@ def matrix_mul(m_a, m_b):
     Returns: the result
     """
     if not isinstance(m_a, list):
-        raise TypeError('m_a must be a list of lists')
+        raise TypeError('m_a must be a list')
     if not isinstance(m_b, list):
-        raise TypeError('m_b must be a list of lists')
+        raise TypeError('m_b must be a list')
     if not all(map(lambda i: isinstance(i, list), m_a)):
         raise TypeError('m_a must be a list of lists')
     if not all(map(lambda i: isinstance(i, list), m_b)):
