@@ -5,8 +5,5 @@
 class MyInt(int):
     """Class that defines MyInt which inherits from int"""
 
-    def __eq__(self, x):
-        return super().__nq__(x)
-
-    def __nq__(self, x):
-        return super().__eq__(x)
+    __eq__ = int.__ne__
+    __ne__ = int.__eq__
