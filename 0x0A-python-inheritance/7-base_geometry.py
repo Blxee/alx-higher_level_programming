@@ -9,7 +9,7 @@ class BaseGeometry:
         """calculates the area of the geometry"""
         raise Exception('area() is not implemented')
 
-    def integer_validator(self, name, value):
+    def integer_validator(self, _name, value):
         """
         validates whether attribute is an int and greater than 0
         Args:
