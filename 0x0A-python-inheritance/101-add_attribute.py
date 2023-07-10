@@ -10,6 +10,6 @@ def add_attribute(obj, name, value):
         name (str): the attribute name
         value (any): the attribute value
     """
-    if '__slots__' in dir(obj):
+    if '__slots__' in dir(obj) and name not in obj.__slots__:
         raise TypeError("can't add new attribute")
     setattr(obj, name, value)
