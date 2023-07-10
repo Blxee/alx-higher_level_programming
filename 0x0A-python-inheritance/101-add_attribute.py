@@ -12,4 +12,6 @@ def add_attribute(obj, name, value):
     """
     if '__slots__' in dir(obj) and name not in obj.__slots__:
         raise TypeError("can't add new attribute")
+    if '__dict__' not in dir(obj):
+        raise TypeError("can't add new attribute")
     setattr(obj, name, value)
