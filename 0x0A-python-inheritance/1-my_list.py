@@ -4,7 +4,7 @@
 
 class MyList(list):
     """
-    My list class which inhirits from list
+    Mylist class which inhirits from list
     """
 
     def print_sorted(self):
