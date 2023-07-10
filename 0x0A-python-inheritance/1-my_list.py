@@ -3,8 +3,12 @@
 
 
 class MyList(list):
-    """My list class which inhirits from list"""
+    """
+    My list class which inhirits from list
+    """
 
     def print_sorted(self):
-        """prints the list sorted in ascending order"""
+        """
+        prints the list sorted in ascending order
+        """
         print(sorted(self))
