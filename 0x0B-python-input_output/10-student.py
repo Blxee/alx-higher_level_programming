@@ -18,9 +18,9 @@ class Student:
         """
         if attrs:
             return {
-                att: getattr(self, att)
-                for att in attrs
-                if hasattr(self, att)
+                key: value
+                for key, value in self.__dict__.items()
+                if key in attrs
             }
         else:
             return self.__dict__
