@@ -16,7 +16,7 @@ class Student:
         Args:
             attrs (list): used to retrieve only specific attributes
         """
-        if attrs:
+        if type(attrs) == list:
             return {
                 key: value
                 for key, value in self.__dict__.items()
