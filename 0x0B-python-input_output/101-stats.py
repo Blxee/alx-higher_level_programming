@@ -3,7 +3,7 @@
 
 
 import sys
-# import re
+import re
 
 status_codes = {code: 0 for code in [200, 301, 400, 401, 403, 404, 405, 500]}
 file_size = 0
@@ -11,14 +11,14 @@ file_size = 0
 
 def parse_line(line):
     """parses log line and gets the code and size"""
-    # m = re.match(
-    #     r'.+ - .* "GET /projects/260 HTTP/1.1" (\d+) (\d+)',
-    #     line
-    # )
-    # if m:
-    #     return (int(m.group(1)), int(m.group(2)))
-    # else:
-    return (0, 0)
+    m = re.match(
+        r'.+ - .* "GET /projects/260 HTTP/1.1" (\d+) (\d+)',
+        line
+    )
+    if m:
+        return (int(m.group(1)), int(m.group(2)))
+    else:
+        return (0, 0)
 
 
 count = 0
