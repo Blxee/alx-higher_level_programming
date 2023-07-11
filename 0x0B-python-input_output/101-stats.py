@@ -31,12 +31,13 @@ if __name__ == '__main__':
             status_codes[code] += 1
             file_size += size
             count += 1
-            if count == 10:
-                raise KeyboardInterrupt
+            if count != 10:
+                continue
         except KeyboardInterrupt:
-            print('File size:', file_size)
-            for code in sorted(status_codes.keys()):
-                occ = status_codes[code]
-                if occ > 0:
-                    print(f'{code}: {occ}')
-            count = 0
+            pass
+        print('File size:', file_size)
+        for code in sorted(status_codes.keys()):
+            occ = status_codes[code]
+            if occ > 0:
+                print(f'{code}: {occ}')
+        count = 0
