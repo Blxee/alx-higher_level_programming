@@ -17,10 +17,10 @@ class Student:
             attrs (list): used to retrieve only specific attributes
         """
         if attrs:
-            dic = dict()
-            for key, value in self.__dict__.items():
-                if key in attrs:
-                    dic[key] = value
-            return dic
+            return {
+                key: value
+                for key, value in self.__dict__.items()
+                if key in attrs
+            }
         else:
             return self.__dict__
