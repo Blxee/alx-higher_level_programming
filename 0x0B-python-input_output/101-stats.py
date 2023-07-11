@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Program that counts status codes in a log and prints them periodicaly"""
 
-
 import sys
 import re
 
@@ -35,8 +34,8 @@ while True:
         if count == 10:
             raise KeyboardInterrupt
     except KeyboardInterrupt:
+        print('File size:', file_size)
         for code, occ in status_codes.items():
             if occ > 0:
                 print(f'{code}: {occ}')
-        print('File size:', file_size)
         count = 0
