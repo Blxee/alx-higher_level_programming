@@ -31,4 +31,4 @@ class Student:
         Args:
             json: a dictionary of the new attributes
         """
-        self.__dict__ = json
+        self.__dict__ = json.copy()
