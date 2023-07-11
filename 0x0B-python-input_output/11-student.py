@@ -31,4 +31,5 @@ class Student:
         Args:
             json: a dictionary of the new attributes
         """
-        self.__dict__ = json.copy()
+        for attr, value in json.items():
+            setattr(self, attr, value)
