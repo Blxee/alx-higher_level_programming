@@ -35,7 +35,8 @@ if __name__ == '__main__':
                 raise KeyboardInterrupt
         except KeyboardInterrupt:
             print('File size:', file_size)
-            for code, occ in status_codes.items():
+            for code in sorted(status_codes.keys()):
+                occ = status_codes[code]
                 if occ > 0:
                     print(f'{code}: {occ}')
             count = 0
