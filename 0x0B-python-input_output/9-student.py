@@ -10,17 +10,8 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self, attrs=None):
+    def to_json(self):
         """
         Serializes the object
-        Args:
-            attrs (list): used to retrieve only specific attributes
         """
-        if attrs:
-            dict = {}
-            for key, value in self.__dict__.items():
-                if key in attrs:
-                    dict[key] = value
-            return dict
-        else:
-            return self.__dict__
+        return self.__dict__
