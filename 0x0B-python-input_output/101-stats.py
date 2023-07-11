@@ -8,6 +8,7 @@ import re
 status_codes = {code: 0 for code in [200, 301, 400, 401, 403, 404, 405, 500]}
 file_size = 0
 
+
 def parse_line(line):
     """parses log line and gets the code and size"""
     m = re.match(
@@ -18,6 +19,7 @@ def parse_line(line):
         return (int(m.group(1)), int(m.group(2)))
     else:
         return (0, 0)
+
 
 count = 0
 while True:
