@@ -138,7 +138,7 @@ class Rectangle(Base):
             *args: the arguments tuple
             *kwargs: the keyword arguments dict
         """
-        attrs = ['id', 'width', 'height', 'x', 'y']
+        attrs = ('id', 'width', 'height', 'x', 'y')
         if len(args) > 0:
             for attr, value in zip(attrs, args):
                 setattr(self, attr, value)
