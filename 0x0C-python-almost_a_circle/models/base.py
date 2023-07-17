@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module for the ``Base`` class"""
 import json
+import csv
 import os
 
 
@@ -86,4 +87,38 @@ class Base:
             json_string = file.read()
         list_dictionaries = cls.from_json_string(json_string)
         list_objs = [cls.create(**dict) for dict in list_dictionaries]
+        return list_objs
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        saves a list of instances that inherit from ``Base`` as csv
+        Args:
+            list_objs (list): list of instances
+        """
+        file_name = cls.__name__ + '.csv'
+        data = [list(obj.to_dictionary().values()) for obj in list_objs]
+        with open(file_name, 'w', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            writer.writerows(data)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        loads a csv file and creates a list of instances
+        Returns:
+            list of ``Base`` subclasses instances
+        """
+        file_name = cls.__name__ + '.csv'
+        if not os.path.isfile(file_name):
+            return []
+        fields = list(cls(1, 1).to_dictionary())
+        data = None
+        with open(file_name, 'r', encoding='utf-8') as file:
+            data = list(csv.reader(file))
+        data = [list(map(int, row)) for row in data]
+        list_objs = []
+        for row in data:
+            obj = {key: value for key, value in zip(fields, row)}
+            list_objs.append(cls.create(**obj))
         return list_objs
