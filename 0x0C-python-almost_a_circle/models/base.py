@@ -72,6 +72,7 @@ class Base:
             new instance of a child class
         """
         instance = cls(1, 1)
+        instance.x = 0
         instance.update(**dictionary)
         return instance
 
