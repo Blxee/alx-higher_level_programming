@@ -122,3 +122,32 @@ class Base:
             obj = {key: value for key, value in zip(fields, row)}
             list_objs.append(cls.create(**obj))
         return list_objs
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        import turtle
+
+        turtle.pensize(5)
+        turtle.showturtle()
+        turtle.penup()
+
+        for list_shapes, color in ((list_rectangles, 'Blue'),
+                                   (list_squares, 'Red')):
+            turtle.pencolor(color)
+            for shape in list_shapes:
+                x, y = shape.x, shape.y
+                w, h = shape.width, shape.height
+
+                turtle.setpos(x, y)
+                turtle.pendown()
+                turtle.forward(w)
+                turtle.right(90)
+                turtle.forward(h)
+                turtle.right(90)
+                turtle.forward(w)
+                turtle.right(90)
+                turtle.forward(h)
+                turtle.right(90)
+                turtle.penup()
+
+        turtle.hideturtle()
