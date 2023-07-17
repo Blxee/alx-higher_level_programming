@@ -41,7 +41,10 @@ class Base:
             list_objs (list): list of instances
         """
         file_name = cls.__name__ + '.json'
-        data = Base.to_json_string([obj.to_dictionary() for obj in list_objs])
+        data = '[]'
+        if list_objs:
+            data = Base.to_json_string(
+                [obj.to_dictionary() for obj in list_objs])
         with open(file_name, 'w', encoding='utf-8') as file:
             file.write(data)
 
