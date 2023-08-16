@@ -1,5 +1,5 @@
 -- Not my genre
-SELECT tv_genres.name
+SELECT DISTINCT tv_genres.name
 FROM tv_genres
 LEFT JOIN tv_show_genres
 ON tv_show_genres.genre_id = tv_genres.id
