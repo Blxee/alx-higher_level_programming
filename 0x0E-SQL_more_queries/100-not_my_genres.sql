@@ -1,5 +1,5 @@
 -- Not my genre
-SELECT DISTINCT name
+SELECT name
 FROM tv_genres
 WHERE id NOT IN (
   SELECT tv_genres.id
