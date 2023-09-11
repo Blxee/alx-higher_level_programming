@@ -2,10 +2,10 @@
 let arr = process.argv.slice(2);
 if (arr.length <= 1) {
   console.log(0);
-  process.exit();
+} else {
+  arr = arr
+    .map(n => parseInt(n))
+    .filter(n => !isNaN(n));
+  arr.pop(Math.max(...arr));
+  console.log(Math.max(...arr));
 }
-arr = arr
-  .map(n => parseInt(n))
-  .filter(n => !isNaN(n));
-arr.pop(Math.max(...arr));
-console.log(Math.max(...arr));
