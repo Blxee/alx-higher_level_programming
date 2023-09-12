@@ -6,6 +6,7 @@ arr = arr
 if (arr.length <= 1) {
   console.log(0);
 } else {
-  arr.pop(Math.max(...arr));
+  arr[arr.indexOf(Math.max(...arr))] = -Infinity;
+  console.log(arr)
   console.log(Math.max(...arr));
 }
