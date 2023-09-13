@@ -1,3 +1,2 @@
 #!/usr/bin/node
-class Rectangle {}
-exports.Rectangle = Rectangle
+export default class Rectangle {}
