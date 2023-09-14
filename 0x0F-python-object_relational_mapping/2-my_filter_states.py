@@ -1,5 +1,5 @@
 #!/usr/bin/python
-"""1. Filter states"""
+"""2. Filter states by user input"""
 import MySQLdb
 from sys import argv
 
