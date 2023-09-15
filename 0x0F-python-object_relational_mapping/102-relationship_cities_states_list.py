@@ -15,6 +15,4 @@ if __name__ == '__main__':
     with Session() as session:
         result = session.query(joined).order_by(asc(cities.c.id)).all()
         for row in result:
-            print(f'{row[cities.c.id]}: '
-                  + f'{row[cities.c.name]} -> '
-                  + f'{row[states.c.name]}')
+            print(f'{row[0]}: {row[2]} -> {row[4]}')
