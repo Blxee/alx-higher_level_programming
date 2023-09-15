@@ -17,8 +17,8 @@ if __name__ == '__main__':
                 "FROM cities INNER JOIN states " +
                 "ON cities.state_id = states.id " +
                 "WHERE states.name LIKE BINARY %s " +
-                "ORDER BY cities.id ASC"
-                , (argv[4],))
+                "ORDER BY cities.id ASC",
+                (argv[4],))
             query_rows = cur.fetchall()
             for row in query_rows:
                 print(row)
