@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """0. Get all states"""
 import MySQLdb
 from sys import argv

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """3. SQL Injection..."""
 import MySQLdb
 from sys import argv
