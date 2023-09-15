@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """17. From city"""
 from sys import argv
-from sqlalchemy import create_engine, MetaData, Table
+from sqlalchemy import asc, create_engine, MetaData, Table
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == '__main__':
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     joined = cities.join(states, cities.c.state_id == states.c.id)
     Session = sessionmaker(bind=engine)
     with Session() as session:
-        result = session.query(joined)
+        result = session.query(joined).order_by(asc(cities.c.id)).all()
         for row in result:
             print(f'{row[cities.c.id]}: '
                   + f'{row[cities.c.name]} -> '
