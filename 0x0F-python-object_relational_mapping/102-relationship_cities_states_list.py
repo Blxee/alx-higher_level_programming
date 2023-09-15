@@ -10,9 +10,9 @@ if __name__ == '__main__':
         f'mysql://{argv[1]}:{argv[2]}@localhost:3306/{argv[3]}')
     cities = Table('cities', MetaData(), autoload_with=engine)
     states = Table('states', MetaData(), autoload_with=engine)
-    joined = cities.join(states, cities.c.state_id == states.c.id)
+    # joined = cities.join(states, cities.c.state_id == states.c.id)
     Session = sessionmaker(bind=engine)
     with Session() as session:
-        result = session.query(joined).order_by(asc(cities.c.id)).all()
+        result = session.query(cities, states).join(states, cities.c.state_id == states.c.id).order_by(asc(cities.c.id)).all()
         for row in result:
             print(f'{row[0]}: {row[2]} -> {row[4]}')
