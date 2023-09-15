@@ -19,5 +19,5 @@ if __name__ == '__main__':
                 "WHERE states.name LIKE BINARY %s " +
                 "ORDER BY cities.id ASC",
                 (argv[4],))
-            query_rows = cur.fetchall()
+            query_rows = map(lambda c: c[0], cur.fetchall())
             print(*query_rows, sep=', ')
