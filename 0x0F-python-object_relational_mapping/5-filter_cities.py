@@ -13,7 +13,7 @@ if __name__ == '__main__':
             charset="utf8") as conn:
         with conn.cursor() as cur:
             cur.execute(
-                "SELECT cities.id, cities.name, states.name " +
+                "SELECT cities.name " +
                 "FROM cities INNER JOIN states " +
                 "ON cities.state_id = states.id " +
                 "WHERE states.name LIKE BINARY %s " +
