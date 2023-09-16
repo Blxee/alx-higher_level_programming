@@ -14,8 +14,8 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     City.state = relationship('State', back_populates='cities')
     with Session() as session:
-        result = session.query(State).order_by(State.id).all()
-        for state in result:
-            print(f'{state.id}: {state.name}')
-            for city in state.cities:
-                print(f'    {city.id}: {city.name}')
+        state = State(name='California')
+        city = City(name='San Francisco', state=state)
+        session.add(state)
+        session.add(city)
+        session.commit()
