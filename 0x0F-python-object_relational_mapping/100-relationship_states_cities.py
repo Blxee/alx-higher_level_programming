@@ -15,7 +15,8 @@ if __name__ == '__main__':
     City.state = relationship('State', back_populates='cities')
     with Session() as session:
         state = State(name='California')
-        city = City(name='San Francisco', state=state)
+        city = City(name='San Francisco')
+        state.cities.append(city)
         session.add(state)
         session.add(city)
         session.commit()
