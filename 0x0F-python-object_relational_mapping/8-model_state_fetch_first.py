@@ -10,5 +10,5 @@ if __name__ == '__main__':
         f'mysql://{argv[1]}:{argv[2]}@localhost:3306/{argv[3]}')
     Session = sessionmaker(bind=engine)
     with Session() as session:
-        state = session.query(State).first()
+        state = session.query(State).order_by(State.id).first()
         print(f'{state.id}: {state.name}')
