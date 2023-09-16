@@ -12,7 +12,6 @@ if __name__ == '__main__':
         f'mysql://{argv[1]}:{argv[2]}@localhost:3306/{argv[3]}')
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
-    City.state = relationship('State', back_populates='cities')
     with Session() as session:
         state = State(name='California')
         city = City(name='San Francisco')
