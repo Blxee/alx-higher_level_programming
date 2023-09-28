@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Module for the find_peak() function """
 
+
 def find_peak(list_of_integers):
     """Determines the peak integer in a list"""
     peak = None
