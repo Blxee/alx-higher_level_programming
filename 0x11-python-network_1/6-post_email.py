@@ -7,6 +7,6 @@ if __name__ == "__main__":
     url = argv[1]
     email = argv[2]
     data = {'email': email}
-    response = requests.get(url, data=data)
+    response = requests.post(url, data=data)
     text = response.text
     print(text)
