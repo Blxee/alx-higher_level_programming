@@ -8,9 +8,9 @@ if __name__ == "__main__":
     owner = argv[2]
     url = f'https://api.github.com/repos/{owner}/{repo}/commits'
     with request.urlopen(url) as response:
-        data = response.readlines()
-        print(data)
-        for i in range(10):
-            sha = data[2 + i * 79][12:-3]
-            name = data[6 + i * 79][17:-3]
-            print(sha, name, sep=': ')
+        import json
+        data = json.load(response)
+        for commit in data[:10]:
+            print(commit.get('sha'),
+                  commit.get('commit').get('author').get('name'),
+                  sep=': ')
