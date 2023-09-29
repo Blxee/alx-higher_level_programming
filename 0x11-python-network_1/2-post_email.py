@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 1. Response header value #0 """
+""" 2. POST an email #0 """
 from urllib import request, parse
 from sys import argv
 
