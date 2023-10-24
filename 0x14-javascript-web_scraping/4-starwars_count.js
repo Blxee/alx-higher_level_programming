@@ -2,7 +2,6 @@
 const request = require('request');
 
 const filmsUrl = process.argv[2];
-const charUrl = 'https://swapi-api.alx-tools.com/api/people/18/';
 const options = { json: true };
 
 request(filmsUrl, options, (err, response, body) => {
@@ -11,7 +10,7 @@ request(filmsUrl, options, (err, response, body) => {
     return;
   }
   const n = body.results.reduce((acc, film) => {
-    if (film.characters.some(char => char == charUrl)) {
+    if (film.characters.some(ch => ch.endsWith('/18/'))) {
       return acc + 1;
     }
     return acc;
