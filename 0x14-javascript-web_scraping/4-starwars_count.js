@@ -11,7 +11,7 @@ request(filmsUrl, options, (err, response, body) => {
     return;
   }
   const n = body.results.reduce((acc, film) => {
-    if (film.characters.includes(charUrl)) {
+    if (film.characters.some(char => char == charUrl)) {
       return acc + 1;
     }
     return acc;
