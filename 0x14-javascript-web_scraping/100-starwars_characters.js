@@ -10,7 +10,7 @@ request(url, options, (err, response, body) => {
     console.log(err);
     return;
   }
-  for (const character of body.results[0]) {
+  for (const character of body.results) {
     if (film in character.films) {
       console.log(character.name);
     }
