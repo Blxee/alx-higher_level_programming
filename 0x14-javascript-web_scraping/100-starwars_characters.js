@@ -11,7 +11,7 @@ request(url, options, (err, response, body) => {
     return;
   }
   for (const character of body.results) {
-    if (film in character.films) {
+    if (character.films.includes(film)) {
       console.log(character.name);
     }
   }
