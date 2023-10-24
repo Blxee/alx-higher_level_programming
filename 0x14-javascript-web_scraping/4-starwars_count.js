@@ -10,11 +10,11 @@ request(filmsUrl, options, (err, response, body) => {
     console.log(err);
     return;
   }
-  let n = 0;
-  for (const film of body.results) {
+  const n = body.results.reduce((acc, film) => {
     if (film.characters.includes(charUrl)) {
-      n++;
+      return acc + 1;
     }
-  }
+    return acc;
+  }, 0);
   console.log(n);
 });
