@@ -15,7 +15,7 @@ $(document).ready(() => {
       .catch(err => alert(err));
   };
 
-  submit.keydown((event) => {
+  lang.keydown((event) => {
     if (event.key === 'Enter') {
       translate();
     }
